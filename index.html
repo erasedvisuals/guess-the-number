@@ -21,10 +21,17 @@
             font-family: 'Bungee Shade', sans-serif;
             font-size: 7vh;
         }
+        .my-shadow-correct{
+            box-shadow: 0px 0px 20px 9px green;
+        }
+        .my-shadow-wrong{
+            box-shadow: 0px 0px 20px 9px crimson;
+        }
     </style>
 </head>
 
 <body class="bg-dark" style="height: 100vh">
+    <!--HEAD AND TITLE-->
     <div id="title-screen-xs" class="d-flex flex-column justify-content-between align-items-center gap-0"
         style="height: 40%;">
         <div class="text-white text-center mt-4">
@@ -33,10 +40,20 @@
         </div>
         <div id="tips" class="text-white mb-5">Set the number</div>
     </div>
-    <div id="sep-xs" class="d-flex bg-white m-0 justify-content-center align-items-center" style="height: 1%;">
-        <div class=" d-flex bg-white justify-content-center align-items-center fs-2"
+    <!--SEP------------->
+    <div id="sep" class="d-flex bg-white m-0 justify-content-center align-items-center" style="height: 1%;">
+        <div class=" d-flex bg-white justify-content-center align-items-center rounded fs-2"
             style="width: 100px; height: 100px;">?</div>
     </div>
+    <div id="sep-correct" class="d-none bg-success m-0 justify-content-center align-items-center my-shadow-correct" style="height: 1%;">
+        <div class="d-flex text-white bg-success justify-content-center align-items-center rounded fs-2 my-shadow-correct"
+            style="width: 100px; height: 100px;">5</div>
+    </div>
+    <div id="sep-wrong" class="d-none bg-danger m-0 justify-content-center align-items-center my-shadow-wrong" style="height: 1%;">
+        <div class=" d-flex text-white bg-danger justify-content-center align-items-center fs-2 my-shadow-wrong"
+            style="width: 100px; height: 100px;">X</div>
+    </div>
+    <!--MAIN------------>
     <div id="main-xs" class="d-flex flex-column justify-content-evenly align-items-center pt-5 text-white"
         style="height: 59%;">
         <div id="records" class="d-flex flex-column justify-content-center align-items-start">
