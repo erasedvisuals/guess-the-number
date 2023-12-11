@@ -97,8 +97,12 @@
         /*
                 ANIMATION
         */
+        .idle{
+            animation: idle 2s ease-out infinite alternate;
+        }
         .correct{
-            animation: correct 2s ease-in;
+            animation: correct .7s ease-in;
+            animation-fill-mode: forwards;
         }
         .wrong{
             animation: wrong .5s ;
@@ -109,6 +113,13 @@
             left:0px;
             right:0px;
         }
+        @keyframes idle {
+            0%{box-shadow: 0px 0px 20px 0px #FF1178}
+            33%{box-shadow: 0px 0px 20px 2px #FF1178}
+            66%{box-shadow: 0px 0px 20px 1px #01FFF4}
+            100%{box-shadow: 0px 0px 20px 0px #01FFF4}
+        }
+
         @keyframes wrong-text {
             0% {left:30px; right:0}
             20% {right:30px; left:0}
@@ -118,8 +129,9 @@
             100% {right:10px; left:0}
         }
         @keyframes correct {
-            from{box-shadow: none;}
-            to{box-shadow: 0px 0px 20px 9px #7CFF01}
+            0%{box-shadow: 0px 0px 15px 2px #ffffff25;}
+            85%{box-shadow: 0px 0px 15px 5px #ffffff25}
+            100%{box-shadow: 0px 0px 20px 9px #7CFF01}
         }
         @keyframes wrong {
             from{box-shadow: none;}
@@ -147,8 +159,8 @@
         <div id="tips" class="text-white mb-6 tip">Set the number</div>
     </div>
     <!--SEP------------->
-    <div id="sep" class="d-flex bg-white m-0 justify-content-center align-items-center" style="height: 1%;">
-        <div id = "number" class=" d-flex bg-white justify-content-center align-items-center rounded fs-2 number"
+    <div id="sep" class="d-flex bg-white m-0 justify-content-center align-items-center idle" style="height: 1%;">
+        <div id = "number" class=" d-flex bg-white justify-content-center align-items-center rounded fs-2 number idle"
             style="width: 100px; height: 100px;">?</div>
     </div>
     <!--MAIN------------>
