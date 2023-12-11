@@ -3,7 +3,8 @@ let number = document.getElementById("number")
 let score = document.getElementsByClassName("score")
 let highscore = document.getElementsByClassName("highscore")
 let check = document.getElementsByClassName("check")
-let input = document.getElementsByTagName("input")
+let input = document.getElementsByClassName("numInput")
+let subInput = document.getElementsByClassName("subInput")
 /* console.log(check)
 console.log(tip)
 console.log(number)
@@ -14,7 +15,19 @@ console.log(highscore) */
 function rnd() {
     return Math.floor(Math.random() * 19 + 1)
 } let guess = rnd()
-// glowing-red and text shake animation
+// highscore searching and settings
+let urlParam = new URLSearchParams(window.location.search)
+function setHighscore(i) {
+    if (!urlParam.get('subHighscore')) {
+        highscore[i].innerHTML = 0
+    } else { highscore[i].innerHTML = urlParam.get('subHighscore') }
+}
+function highscoreUpdate(i) {
+    if (parseInt(score[i].innerHTML) > parseInt(highscore[i].innerHTML)) {
+        highscore[i].innerHTML = score[i].innerHTML
+    }
+}
+// ---------------animations-------------
 function wrong(i) {
     document.getElementById("sep").classList.add('wrong')
     number.classList.add('wrong')
@@ -47,12 +60,17 @@ function disable(i) {
     input[i].classList.remove("border-neon-cyan")
     check[i].disabled = true
 }
+//--------------------------------------------------
 
 // for con 0 e 1 dove 0 sta per comportamento con schermo xs e 1 lg
 for (let i = 0; i <= 1; i++) {
+    //controlla se ha ancora tentativi
     if (score[i].innerHTML <= 0) {
         disable(i)
     }
+    //setta l'highscore a 0 se è la prima partita
+    setHighscore(i)
+    // click actions
     check[i].addEventListener('click', run)
     function run() {
         let value = input[i].value
@@ -75,8 +93,8 @@ for (let i = 0; i <= 1; i++) {
         } else {
             correct(i)
             //aggiorna score
-            highscore[i].innerHTML = score[i].innerHTML
-            score[i].innerHTML = 20
+            highscoreUpdate(i)
+            console.log(i, score[i].innerHTML, highscore[i].innerHTML)
             //disabilita tutto in modo da forzare il play again
             disable(i)
         }
@@ -85,6 +103,11 @@ for (let i = 0; i <= 1; i++) {
             disable(i)
         }
     }
-    document.getElementsByClassName('play-again')[i].addEventListener('click', () => { window.location.reload() })
+    // Esegue il submit dell'highscore per tenerlo in memoria
+    document.getElementsByClassName('play-again')[i].addEventListener('click', () => {
+
+        subInput[i].value = highscore[i].innerHTML
+        document.getElementsByClassName('subform')[i].submit()
+    })
 }
 

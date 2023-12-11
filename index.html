@@ -183,13 +183,17 @@
                     <div class="mb-2 d-flex justify-content-center ">
                         <label for="player-guess" class="form-label"></label>
                         <input type="number" name="player-guess" id="player-guess"
-                            class="form-control bg-transparent border-neon-cyan fs-5 text-white text-center">
+                            class="form-control bg-transparent border-neon-cyan fs-5 text-white text-center numInput">
                     </div>
                     <button class="btn bg-transparent border-neon-cyan rounded text-neon-c fw-bold mt-1 check" type="button">Check!</button>
                 </form>
             </div>
         </div>
         <div id="restart" class="">
+            <!--Form invisibile da usare per submit highscore-->
+            <form action="" class="d-none subform">
+                <input type="text" name="subHighscore" id="" class="subInput" value="0">
+            </form>
             <button class="btn bg-transparent border-neon-red rounded text-white mt-3 play-again" type="reset">Play
                 again!</button>
         </div>
@@ -204,7 +208,7 @@
                         <div class="mb-2 d-flex justify-content-center ">
                             <label for="player-guess" class="form-label"></label>
                             <input type="number" name="player-guess" id="player-guess"
-                                class="form-control bg-transparent border-neon-cyan fs-2 w-75 text-white text-center">
+                                class="form-control bg-transparent border-neon-cyan fs-2 w-75 text-white text-center numInput">
                         </div>
                         <button class="btn bg-transparent border-neon-pink rounded text-white fw-bold mt-3 check"
                             type="button">Check!</button>
@@ -224,6 +228,10 @@
             </div>
         </div>
         <div id="restart-lg" class="">
+            <!--Form invisibile da usare per submit highscore-->
+            <form action="" class="d-none subform">
+                <input type="text" name="subHighscore" id="" class="subInput" value="0">
+            </form>
             <button class="btn bg-transparent border-neon-red rounded text-white fs-1 play-again" type="button">Play
                 again!</button>
         </div>
